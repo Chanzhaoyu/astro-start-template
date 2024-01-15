@@ -39,7 +39,6 @@ const auth = Astro.cookies.has("token");
   import { count } from "@/store";
 
   document.querySelector("#counter")?.addEventListener("click", () => {
-    console.log(11);
     count.set(count.get() + 1);
   });
 </script>

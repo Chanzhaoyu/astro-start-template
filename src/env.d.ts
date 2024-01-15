@@ -2,7 +2,6 @@
 
 interface ImportMetaEnv {
   readonly JWT_SECRET_KEY: string;
-  readonly DATABASE_URL: string;
 }
 
 interface ImportMeta {
