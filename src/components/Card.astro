@@ -1,0 +1,23 @@
+---
+
+---
+
+<div class="p-4 rounded-md border">
+  <header class="font-bold">Card (Astro Component)</header>
+  <main class="my-4">
+    <p class="mb-2">Click Add Button , React Component effect</p>
+  </main>
+  <footer class="flex gap-4">
+    <button class="px-4 p-2 border rounded-md" id="addButton">
+      Add Counter
+    </button>
+  </footer>
+</div>
+
+<script>
+  import { count } from "@/store";
+  const addButton = document.getElementById("addButton");
+  addButton?.addEventListener("click", () => {
+    count.set(count.get() + 1);
+  });
+</script>

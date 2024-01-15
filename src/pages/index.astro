@@ -1,0 +1,45 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Login from "@/components/Login";
+import CardAstro from "@/components/Card.astro";
+import CardReact from "@/components/Card";
+
+const auth = Astro.cookies.has("token");
+---
+
+<Layout title="Welcome to Astro.">
+  <div class="p-4">
+    <div class="p-4 flex flex-col gap-4">
+      <h1 class="text-2xl font-bold">Dashboard</h1>
+      <div>
+        <CardAstro />
+      </div>
+      <div>
+        <CardReact client:only />
+      </div>
+      {
+        auth && (
+          <a href="/protected" class="text-blue-500 underline">
+            To Protected Page
+          </a>
+        )
+      }
+      {
+        !auth && (
+          <div>
+            <Login client:load />
+          </div>
+        )
+      }
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import { count } from "@/store";
+
+  document.querySelector("#counter")?.addEventListener("click", () => {
+    console.log(11);
+    count.set(count.get() + 1);
+  });
+</script>
